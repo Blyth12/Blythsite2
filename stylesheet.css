@@ -4,10 +4,10 @@ html, body {
   
   body {
     background-size: cover;
-    background-color: rgb(220, 220, 220);
+    background-color: rgb(0, 0, 0);
     font-family: "Segoe UI", Arial, sans-serif;
-    color: rgb(0, 0, 0);
-    text-align: left;
+    color: rgb(255, 255, 255);
+    text-align: center;
     overflow: hidden;
   }
   
@@ -72,10 +72,10 @@ html, body {
     font-weight: normal;
   }
   
-  /*Header*/
+  /* !!Header (Topnav = todo) , (a = botón) , (a hover / active = a con el cursor encima / a elegida)!! */
   
   .topnav {
-    background-color: rgb(47, 78, 136);
+    background-color: rgb(49, 51, 54);
     overflow: hidden;
     position: sticky;
     margin-left: -8px;
@@ -109,8 +109,8 @@ html, body {
   /*Footer*/
 
   .footer {
-    border-top: 5px solid rgb(128, 128, 128);
-    background-color: rgb(200, 200, 200);
+    border-top: 0px solid rgb(128, 128, 128);
+    background-color: rgb(49, 51, 54);
     overflow: hidden;
     position: absolute;
     bottom: 0px;
@@ -121,9 +121,9 @@ html, body {
   
   .footer a {
     float: left;
-    color: rgb(220, 220, 220);
+    color: rgb(255, 255, 255);
     text-align: center;
-    padding: 10px 16px;
+    padding: 10px 5px;
     text-decoration: none;
     font-size: 17px;
   }
@@ -140,13 +140,161 @@ html, body {
 
   /*End Footer*/
 
+
+  /*Login*/
+
   #login {
     position:relative; top:50px;
     margin: auto;
-    border-radius: 50px;
-    background-color: rgb(255, 255, 255);
-    border: 5px solid rgb(47, 78, 136);
+    border-radius: 0px;
+    background-color: rgb(49, 51, 54);
+    border: 5px solid rgb(25,26,27);
     padding: 20px; 
     width: 500px;
     height: 350px;  
   }
+
+   /*End Login*/
+
+
+  /*Files page*/
+
+  .uploads{
+    word-wrap: break-word;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+}
+.spacelol{
+    width: 0em;
+}
+.upl{
+    width: 21em;
+    height: 18em;
+    padding: 1em;
+    margin: 1em;
+    background-color: #202020;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.thmbnl{
+    cursor: pointer;
+    max-height: 80%;
+    max-width: 100%;
+    margin-bottom: 1em;
+}
+.thmbnl img{
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+.transparent{
+    border-color: rgba(0,0,0,0);
+}
+.prevNext{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 25em;
+    margin: auto;
+}
+.prNxt{
+    width: 8em;
+    margin: 2em;
+}
+.smolflex{
+    margin: 0.5em auto;
+    display: flex;
+    width: 50%;
+    justify-content: center;
+}
+.delFlex{
+    margin-top: 2em;
+    display: flex;
+    width: 100%;
+    justify-content: space-around;
+}
+.pages{
+    margin: 0.5em auto;
+    display: flex;
+    justify-content: center;
+}
+.inPages{
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid rgb(49, 51, 54);
+    width: 3em;
+    height: 2em;
+    line-height: 2em;
+}
+.inPages:hover{
+    cursor: pointer;
+    background-color: #505050;
+}
+.pageInput{
+    color: white;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    font-size: 1em;
+    width: 100%;
+    text-align: center;
+}
+.blackInput{
+    font-family: inherit;
+    border: 1px solid black;
+    border-radius: 4px;
+    padding: 0.3rem;
+    font-size: 0.8em;
+    width: 10rem;
+    outline: none;
+    background-color: #050505;
+    color: white;
+}
+.blackInput:focus{
+    border: 1px solid #b82525;
+}
+.infoWrapper{
+    padding: 2em;
+    width: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(49, 51, 54);
+    border: 5px solid rgb(25,26,27);
+    border-radius: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.infoWrapper td{
+    padding: 0.3em;
+}
+.importantFilesTxt{
+    margin-top: 3em;
+    width: 70%;
+}
+.fa, .far, .fas{
+    color: #A0A0A0;
+    cursor: pointer;
+}
+@media only screen and (min-width: 768px){
+    .wrapper{
+        width: 25em;
+    }
+    .bigwrapper{
+        width: 37em;
+    }
+}
+
+ /*End Files page*/

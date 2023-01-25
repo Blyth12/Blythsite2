@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="stylesheet.css" type="text/css">
 
 <div class="topnav">
     <a href="index.html">Home</a>
@@ -10,14 +10,15 @@
 
 
 <body>
-    <form action="/action_page.php" style="text-align: center;">
+    <form action="action.php" method="post" style="text-align: center;">
+    <!--<php if (isset($_GET['error'])) { ?><p class="error"><php echo $_GET['error']; ?></p><php } ?>-->
     <p id="login" style="text-align: center;">
         <label for="email">Email:</label><br>
-        <input type="text" id="email" name="email"><br><br>
+        <input type="text" id="email" name="email" style="border-radius: 0px;"><br><br>
         <label for="password">Password:</label><br>
-        <input type="password" id="password" name="password"><br><br>
-        <input type="submit" value="Submit">
-        <input type="button" value="Sign up" onclick="location.href = 'signup.html'">
+        <input type="password" id="password" name="password" style="border-radius: 0px;"><br><br>
+        <input type="submit" value="Submit" style="border-radius: 0px;">
+        <input type="button" value="Sign up" onclick="location.href = 'signup.html'" style="border-radius: 0px;">
     </p>
     </form>
 </body>
