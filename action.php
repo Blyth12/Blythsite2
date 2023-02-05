@@ -1,10 +1,10 @@
 <?php
 
 // Connect to the database
-$host = "localhost";
+$host = "localhost:8888";
 $username = "username";
 $password = "password";
-$dbname = "database_name";
+$dbname = "accounts";
 
 $conn = mysqli_connect($host, $username, $password, $dbname);
 
@@ -18,34 +18,22 @@ if (isset($_POST['submit'])) {
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
 
-    // Query the database to check if the entered credentials match those in the database
-    $query = "SELECT * FROM users WHERE username='$username' AND password='$password'";
+    // Prepare the SELECT query
+    $query = "SELECT * FROM accounts WHERE username = '$username' AND password = '$password'";
+
+    // Execute the query
     $result = mysqli_query($conn, $query);
 
-    // If a match is found, log the user in
-    if (mysqli_num_rows($result) == 1) {
-        // Start a session and set a session variable to indicate that the user is logged in
-        session_start();
-        $_SESSION['logged_in'] = true;
-
-        // Redirect the user to the protected page
-        header('Location: protected.php');
-        exit;
+    // Check if the query returned any results
+    if (mysqli_num_rows($result) > 0) {
+        // The entered credentials are correct
+        echo "Login successful!";
     } else {
-        // If the entered credentials are invalid, show an error message
-        $error = "Invalid username or password";
+        // The entered credentials are incorrect
+        echo "Login failed. Incorrect username, password, or acckey.";
     }
 }
 
+mysqli_close($conn);
+
 ?>
-
-<!-- HTML login form -->
-<form action="" method="post">
-    <label for="username">Username:</label><br>
-    <input type="text" name="username" id="username"><br>
-    <label for="password">Password:</label><br>
-    <input type="password" name="password" id="password"><br><br>
-    <input type="submit" name="submit" value="Log in">
-</form>
-
-<?php
