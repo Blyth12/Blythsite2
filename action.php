@@ -14,26 +14,35 @@ if (!$conn) {
 
 // Check if the form has been submitted
 if (isset($_POST['submit'])) {
+    header("Location: login.html");
     // Get the form data
     $username = mysqli_real_escape_string($conn, $_POST['username']);
     $password = mysqli_real_escape_string($conn, $_POST['password']);
 
-    // Prepare the SELECT query
     $query = "SELECT * FROM accounts WHERE username = '$username' AND password = '$password'";
-
-    // Execute the query
+    // Execute query
     $result = mysqli_query($conn, $query);
 
     // Check if the query returned any results
     if (mysqli_num_rows($result) > 0) {
-        // The entered credentials are correct
+        // Match
+        mysqli_close($conn);
         echo "Login successful!";
-        header("Location: '.$uploads.html")
-    } else {
-        // The entered credentials are incorrect
-        echo "Login failed. Incorrect username, password, or acckey.";
-        header("Location: '.$login.html")
+        header("Location: uploads.html");
+        exit();
     }
+    else {
+        // No match
+        mysqli_close($conn);
+        echo "Login failed. Incorrect username, password, or acckey.";
+        header("Location: login.html");
+        exit();
+    }
+}
+
+else {
+    header("Location: index.html");
+    exit();
 }
 
 mysqli_close($conn);
