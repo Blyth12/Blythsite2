@@ -1,9 +1,9 @@
 <?php
 
 // Connect to the database
-$host = "localhost:8888";
-$username = "username";
-$password = "password";
+$host = "localhost:3306";
+$username = "root";
+$password = "";
 $dbname = "accounts";
 
 $conn = mysqli_connect($host, $username, $password, $dbname);
@@ -28,9 +28,11 @@ if (isset($_POST['submit'])) {
     if (mysqli_num_rows($result) > 0) {
         // The entered credentials are correct
         echo "Login successful!";
+        header("Location: '.$uploads.html")
     } else {
         // The entered credentials are incorrect
         echo "Login failed. Incorrect username, password, or acckey.";
+        header("Location: '.$login.html")
     }
 }
 
