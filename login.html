@@ -19,11 +19,23 @@
         <input type="text" id="username" name="username" style="border-radius: 0px;"><br><br>
         <label for="password">Password:</label><br>
         <input type="password" id="password" name="password" style="border-radius: 0px;"><br><br>
-        <input type="submit" name="submit" value="Submit" style="border-radius: 0px;">
-        <input type="button" value="Sign up" onclick="location.href = 'signup.html'" style="border-radius: 0px;">
+        <input type="submit" name="submit" value="Submit" style="border-radius: 0px;"><br>
+        <label id="errormsg" style="color: crimson;"></label>
+        <!--<input type="button" value="Sign up" onclick="location.href = 'signup.html'" style="border-radius: 0px;">-->
     </p>
     </form>
 </body>
+
+<script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const error = urlParams.get('error')
+    if (error === 'credentials') {
+        document.getElementById('errormsg').textContent = 'Invalid login details. Please try again'
+    }
+    else if (error === 'connection') {
+        document.getElementById('errormsg').textContent = 'Connection error. Try again later'
+    }
+</script>
 
 <div class="footer">
     <a> <option lang="en" value="English">English</option></a>
