@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="stylesheet.css">
+    <title>Uploads</title>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.9/css/all.css" integrity="sha384-5SOiIsAziJl6AWe0HWRKTXlfcSHKmYV4RBF18PPJ173Kzn7jzMyFuTtk8JA7QQG1" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+        <script src="scripts.js"></script>
+
+<div class="topnav">
+    <a href="index.html">Home</a>
+    <a href="login.html">Login</a>
+    <a href="about.html">About</a>
+    <a class="active" href="uploads.php">Uploads</a>
+</div>
+
+<body>
+    <script src="logcheck.js"></script>
+    <div class="uploadsWrapper">
+        <h2>Your uploads</h2>
+        <hr class="transparent">
+        Showing files <span id="st"></span> to <span id="end"></span> (total: <span id="total"></span>)
+        <div class="pages">
+            <div id="first" class="clickable inPages">&#8249;&#8249;</div>
+            <div id="prev" class="clickable inPages">&#8249;</div>
+            <div id="act" class="inPages"><input id="pageInput" type="text" class="pageInput"></div>
+            <div id="next" class="clickable inPages">&#8250;</div>
+            <div id="last" class="clickable inPages">&#8250;&#8250;</div>
+        </div>
+        <div id="uploadsList" class="uploads"></div>
+    </div>
+    <div id="infoWrapper" class="infoWrapper">
+        <table class="fileInfoTable">
+            <tr><td>Name</td><td id="filename"></td></tr>
+            <tr><td>Important</td><td id="fileimportant"></td></tr>
+            <tr><td>Type</td><td id="filetype"></td></tr>
+            <tr><td>Size</td><td id="filesize"></td></tr>
+            <tr><td>Date</td><td id="filedate"></td></tr>
+            <tr><td>URL</td><td id="fileurl"><a class="gr"></a></td></tr>
+        </table>
+        <input type="hidden" id="fileId">
+        <div class="importantFilesTxt">
+            "Important" files are only deleted after the "regular" files when you reach your upload limit.<br><br>
+            <span id="makeImp" class="gr">Mark this file as <span id="isImp"></span></span>
+            <div class="delFlex">
+                <div><i class="fa fa-trash delete" style="color:#b82525;font-size:3em;"></i></div>
+        <div><i class="fas fa-times ok" style="color:#b82525;font-size:3em;"></i></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+<div class="footer">
+    <a> <option lang="en" value="English">English</option></a>
+    <a> <option lang="es" value="Español">Español</option></a>
+    <a> <option lang="ca" value="Català">Català</option></a>
+</div>
+
+</html>

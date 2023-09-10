@@ -6,6 +6,16 @@ $password = "";
 $dbname = "accounts";
 $conn = mysqli_connect($host, $username, $password, $dbname);
 
+function generate_session_id($length = 32) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $sessionid = '';
+
+    for ($i = 0; $i < $length; $i++) {
+        $sessionid .= $characters[random_int(0, strlen($characters) -1)];
+    }
+    return $sessionid;
+}
+
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
@@ -24,13 +34,12 @@ if (isset($_POST['submit'])) {
     if (mysqli_num_rows($result) > 0) {
         //Match
         mysqli_close($conn);
+        $user_id = $username;
+        $session_id = generate_session_id();
+        $_SESSION['user_id'] = $user_id;
+        setcookie('session_id', $session_id, time() + 3600, '/');
         echo "Login successful!";
-        $loggedin = array(
-            'success' => true,
-            'message' => 'Login successful'
-        );
-        $loggedinJSON = json_encode($loggedin);
-        header("Location: uploads.html");
+        header("Location: uploads.php");
         exit();
     }
     else {
@@ -38,10 +47,6 @@ if (isset($_POST['submit'])) {
         mysqli_close($conn);
         echo "Login failed. Incorrect username, password, or acckey.";
         header("Location: login.html?error=credentials");
-        $loggedin = array(
-            'success' => false,
-            'message' => 'Login failed'
-        );
         exit();
     }
 }
